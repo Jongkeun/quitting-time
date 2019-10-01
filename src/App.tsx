@@ -8,11 +8,6 @@ const App: React.FC = () => {
     <div className="App">
       <form>
         <div>
-          <label>Start Time</label>
-          <br />
-          <Time />
-        </div>
-        <div>
           <label>Quit Time</label>
           <br />
           <Time />

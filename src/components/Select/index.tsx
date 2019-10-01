@@ -1,11 +1,21 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const Select = (props: any) => {
+interface SelectProps {
+  children?: ReactNode;
+  from: number;
+  to: number;
+  selected: number;
+  name: string;
+  onChanged: any;
+}
+
+const Select = (props: SelectProps) => {
   const arr: Array<number> = [];
   for (let i = props.from; i <= props.to; i++) {
     arr.push(i);
   }
-
+  console.log("select");
+  console.log(props.selected);
   return (
     <select
       className={props.name}

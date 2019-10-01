@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { ReactNode } from "react";
 import Select from "../Select";
 
-const Seconds: React.FC = () => {
-  const [second, setSeconds] = useState(0);
+interface MinutesProps {
+  children?: ReactNode;
+  second: number;
+  onChange: any;
+}
 
-  const onChanged = (event: any) => {
-    setSeconds(event.target.value);
-  };
-
+const Seconds = (props: MinutesProps) => {
   return (
     <Select
       from={0}
       to={60}
-      selected={second}
+      selected={props.second}
       name={"seconds"}
-      onChanged={onChanged}
+      onChanged={props.onChange}
     />
   );
 };
