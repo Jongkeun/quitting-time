@@ -16,6 +16,6 @@ select {
   font-size: 30px;
   margin: 0 10px;
 }
-.App-link {
+a {
   color: #09d3ac;
 }

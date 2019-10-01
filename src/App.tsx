@@ -1,27 +1,25 @@
 import React from "react";
-import logo from "./logo.svg";
-import Time from "./components/Time";
+import {
+  HashRouter as Router,
+  Route,
+  Redirect,
+  Link,
+  Switch,
+} from "react-router-dom";
+import SettingPage from "./components/SettingPage";
+import Timer from "./components/Timer";
 import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <form>
-        <div>
-          <label>Quit Time</label>
-          <br />
-          <Time />
-        </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Set
-        </a>
-      </form>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={SettingPage} />
+          <Route exact path="/timer" component={Timer} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

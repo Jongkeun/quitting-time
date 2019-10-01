@@ -14,8 +14,7 @@ const Select = (props: SelectProps) => {
   for (let i = props.from; i <= props.to; i++) {
     arr.push(i);
   }
-  console.log("select");
-  console.log(props.selected);
+
   return (
     <select
       className={props.name}
