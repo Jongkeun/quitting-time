@@ -37,7 +37,7 @@ const Timer = (props: any) => {
       //     clearInterval(x);
       //     document.getElementById("demo").innerHTML = "EXPIRED";
       //   }
-    }, 1000);
+    }, 100);
 
     return function cleanup() {
       clearInterval(x);
