@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import storage from "../../IO/storage";
 
 const Timer = (props: any) => {
-  console.log(props.location.state);
-  const states = props.location.state;
-  const [hour, setHours] = useState(states.Hour);
-  const [minute, setMinutes] = useState(states.Minute);
-  const [second, setSeconds] = useState(states.Second);
+  const [hour, setHours] = useState(18);
+  const [minute, setMinutes] = useState(0);
+  const [second, setSeconds] = useState(0);
   const [timeString, setTimeString] = useState("");
+
+  storage.get().then((data: any) => {
+    if (data.Hour) setHours(parseInt(data.Hour));
+    if (data.Minute) setMinutes(parseInt(data.Minute));
+    if (data.Second) setSeconds(parseInt(data.Second));
+  });
+
   const t = new Date();
-  t.setHours(states.Hour);
-  t.setMinutes(states.Minute);
-  t.setSeconds(states.Second);
+  t.setHours(hour);
+  t.setMinutes(minute);
+  t.setSeconds(second);
   const countDownDate = t.getTime();
   useEffect(() => {
     var x = setInterval(function() {
@@ -43,17 +48,17 @@ const Timer = (props: any) => {
       clearInterval(x);
     };
   });
-  // storage.get().then((data: any) => {
-  //   if (data.Hour) setHours(parseInt(data.Hour));
-  //   if (data.Minute) setMinutes(parseInt(data.Minute));
-  //   if (data.Second) setSeconds(parseInt(data.Second));
 
+  const onClick = () => {
+    props.history.push({
+      pathname: "/",
+    });
+  };
   return (
     <div>
-      <br />
+      <a onClick={onClick}>Setting</a>
       <label>{`${timeString}`}</label>
       <br />
-      <Link to="/">Go to setting page</Link>
     </div>
   );
 };
