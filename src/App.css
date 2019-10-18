@@ -11,12 +11,6 @@
   color: white;
 }
 
-select {
-  /* font-size: calc(10px + 10vmin); */
-  font-size: 30px;
-  margin: 0 10px;
-}
-
 a {
   position: absolute;
   right: 10px;

@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import "./style.css";
 
 interface SelectProps {
   children?: ReactNode;

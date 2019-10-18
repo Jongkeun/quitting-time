@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Hours from "../Hours";
 import storage from "../../IO/storage";
 import Select from "../Select";
 
