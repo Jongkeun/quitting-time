@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Hours from "../Hours";
-import Minutes from "../Minutes";
-import Seconds from "../Seconds";
 import storage from "../../IO/storage";
-import { Link } from "react-router-dom";
+import Select from "../Select";
 
 const SettingPage = (props: any) => {
   const [hour, setHours] = useState(18);
@@ -41,9 +39,27 @@ const SettingPage = (props: any) => {
     <div>
       <label>Quit Time</label>
       <br />
-      <Hours hour={hour} onChange={valueChanged} />
-      <Minutes minute={minute} onChange={valueChanged} />
-      <Seconds second={second} onChange={valueChanged} />
+      <Select
+        selected={hour}
+        from={6}
+        to={24}
+        name={"hours"}
+        onChanged={valueChanged}
+      />
+      <Select
+        from={0}
+        to={60}
+        selected={minute}
+        name={"minutes"}
+        onChanged={valueChanged}
+      />
+      <Select
+        from={0}
+        to={60}
+        selected={second}
+        name={"seconds"}
+        onChanged={valueChanged}
+      />
       <a onClick={onClick}>Set</a>
     </div>
   );
