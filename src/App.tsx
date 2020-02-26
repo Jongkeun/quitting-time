@@ -3,7 +3,6 @@ import {
   HashRouter as Router,
   Route,
   Redirect,
-  Link,
   Switch,
 } from "react-router-dom";
 import SettingPage from "./components/SettingPage";
@@ -11,7 +10,7 @@ import Timer from "./components/Timer";
 import "./App.css";
 import storage from "./IO/storage";
 
-const App: React.FC = () => {
+const App = () => {
   const [isSet, setIsSet] = useState(false);
   const checkSet = () => {
     storage.get().then((data: any) => {
