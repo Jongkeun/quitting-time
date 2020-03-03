@@ -42,11 +42,14 @@ const Timer = (props: any) => {
 
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    setTimeString(hours + "h " + minutes + "m " + seconds + "s ");
+    if (hours < 0) setTimeString("Go Home");
+    else setTimeString(hours + "h " + minutes + "m " + seconds + "s ");
   };
 
   const onClick = () => {
